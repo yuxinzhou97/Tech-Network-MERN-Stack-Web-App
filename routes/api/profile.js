@@ -308,4 +308,32 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
   }
 });
 
+// @route    GET api/profile/github/:username
+// @desc     Get user repos from Github
+// @access   Public
+// github token : 81d36bfac59daa017164575c7c73c5ace4d14e15
+// do not select anything in scope
+router.get("/github/:username", async (req, res) => {
+  try {
+    // const uri = encodeURI(
+    //     `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
+    //   );
+    //   const headers = {
+    //     'user-agent': 'node.js',
+    //     Authorization: `token ${config.get('githubToken')}`
+    //   };
+
+    //   const gitHubResponse = await axios.get(uri, { headers });
+    const uri = encodeURI(
+      `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
+    );
+
+    const gitHub = await axios.get(uri);
+    return res.json(gitHub.data);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(404).json({ msg: "No Github profile found" });
+  }
+});
+
 module.exports = router;
