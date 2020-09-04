@@ -164,7 +164,11 @@ const ProfileForm = ({
         </div>
 
         <div className="my-2">
-          <button type="button" className="btn btn-light">
+          <button
+            onClick={() => toggleSocialInputs(!displaySocialInputs)}
+            type="button"
+            className="btn btn-light"
+          >
             Add Social Network Links
           </button>
           <span>Optional</span>
