@@ -1,0 +1,5 @@
+{
+  "mongoURI": "mongodb+srv://yz123:yz123@mern.rhmei.azure.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubToken": "81d36bfac59daa017164575c7c73c5ace4d14e15"
+}
